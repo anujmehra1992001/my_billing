@@ -1,1 +1,55 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="user-info">
+            <i class="fas fa-user-circle user-icon"></i>
+            <div class="user-info">
+                <div class="user-info">
+                    <img src="assets/profile/admin.png" alt="Profile" class="profile-pic" />
+
+                    <p class="brand">
+                        <span class="amaze">AMAZE</span>
+                        <span class="coders">CODERS</span>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+        <ul class="menu">
+            <li *ngFor="let item of menuItems">
+                <a [routerLink]="['/dashboard', item.path]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="menu-item">
+                    <i [class]="item.icon"></i>
+                    <span>{{ item.label }}</span>
+                </a>
+            </li>
+        </ul>
+        <button class="logout-btn" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- <h1>
+            Welcome,
+            <span class="amaze">AMAZE</span>
+            <span class="coders">CODERS</span>
+        </h1> -->
+
+        <!-- <div class="cards-container">
+            <div class="card" *ngFor="let card of cards">
+                <div class="card-icon">
+                    <i [class]="card.icon"></i>
+                </div>
+                <div class="card-info">
+                    <p class="card-value">{{ card.value }}</p>
+                    <p class="card-title">{{ card.title }}</p>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Add Router Outlet for sub-pages -->
+        <router-outlet></router-outlet>
+    </main>
+</div>

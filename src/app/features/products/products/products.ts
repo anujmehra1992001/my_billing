@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
+  imports:[],
   template: `
     <div style="padding:20px">
       <h2>Products</h2>

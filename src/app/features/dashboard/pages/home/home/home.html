@@ -1,0 +1,43 @@
+<!-- 🔄 Loader -->
+<div *ngIf="loading" class="loader-container">
+    <div class="spinner"></div>
+    <p>Loading dashboard...</p>
+</div>
+
+<!-- ❌ Error -->
+<div *ngIf="error" class="error">
+    {{ error }}
+</div>
+
+<!-- ✅ Dashboard -->
+<div *ngIf="!loading && dashboardData" class="dashboard">
+
+    <h2>
+        Welcome,
+        <span class="amaze">AMAZE</span>
+        <span class="coders">CODERS</span>
+    </h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Users</h3>
+            <p>{{ dashboardData.cards.totalUsers }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Tasks</h3>
+            <p>{{ dashboardData.cards.totalTasks }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Notifications</h3>
+            <p>{{ dashboardData.cards.notifications }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Active Products</h3>
+            <p>{{ dashboardData.cards.activeProducts }}</p>
+        </div>
+    </div>
+
+</div>

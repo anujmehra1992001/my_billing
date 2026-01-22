@@ -15,40 +15,58 @@ export const routes: Routes = [
     path: 'dashboard',
     loadComponent: () =>
       import('./features/dashboard/dashboard/dashboard')
-        .then(m => m.DashboardComponent)
-  },
+        .then(m => m.DashboardComponent),
 
-  {
-    path: 'customers',
-    loadComponent: () =>
-      import('./features/customers/customers/customers')
-        .then(m => m.CustomersComponent)
-  },
+    children: [
 
-  {
-    path: 'products',
-    loadComponent: () =>
-      import('./features/products/products/products')
-        .then(m => m.ProductsComponent)
-  },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
 
-  {
-    path: 'invoices',
-    loadComponent: () =>
-      import('./features/invoices/invoices/invoices')
-        .then(m => m.InvoicesComponent)
-  },
-  {
-    path: 'sidebar',
-    loadComponent: () =>
-      import('./core/layout/sidebar/sidebar')
-        .then(m => m.SidebarComponent)
-  },
-  {
-    path: 'topbar',
-    loadComponent: () =>
-      import('./core/layout/topbar/topbar')
-        .then(m => m.TopbarComponent)
+      {
+        path: 'home',
+        loadComponent: () =>
+          import('./features/dashboard/pages/home/home/home')
+            .then(m => m.Home)
+      },
+
+      {
+        path: 'overview',
+        loadComponent: () =>
+          import('./features/dashboard/pages/overview/overview/overview')
+            .then(m => m.Overview)
+      },
+
+      {
+        path: 'tasks',
+        loadComponent: () =>
+          import('./features/dashboard/pages/tasks/tasks/tasks')
+            .then(m => m.Tasks)
+      },
+
+      {
+        path: 'users',
+        loadComponent: () =>
+          import('./features/dashboard/pages/users/users/users')
+            .then(m => m.Users)
+      },
+
+      {
+        path: 'notifications',
+        loadComponent: () =>
+          import('./features/dashboard/pages/notifications/notifications/notifications')
+            .then(m => m.Notifications)
+      },
+
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('./features/dashboard/pages/settings/settings/settings')
+            .then(m => m.Settings)
+      }
+    ]
   },
 
   { path: '**', redirectTo: 'login' }

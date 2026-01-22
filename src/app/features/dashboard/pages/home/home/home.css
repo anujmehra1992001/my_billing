@@ -1,0 +1,145 @@
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.amaze {
+    color: #007bff;
+}
+
+.coders {
+    color: #28a745;
+}
+
+.cards {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.card {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.card i {
+    font-size: 2rem;
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.recent-tasks {
+    margin-top: 2rem;
+}
+
+.recent-tasks table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-tasks th,
+.recent-tasks td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.status-pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-progress {
+    color: blue;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+
+/* Loader */
+
+.loader-container {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Heading */
+
+.amaze {
+    color: #007bff;
+    /* blue */
+    font-weight: bold;
+}
+
+.coders {
+    color: #28a745;
+    /* green */
+    font-weight: bold;
+}
+
+
+/* Cards */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .08);
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* Error */
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 40px;
+}

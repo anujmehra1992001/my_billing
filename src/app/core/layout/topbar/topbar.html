@@ -1,2 +1,18 @@
-<p>topbar works!</p>
-<h1>hey</h1>
+<div class="topbar">
+    <span class="welcome-text">
+    Hi, <b *ngIf="loggedInUser?.email">{{ loggedInUser.email }}</b> | Amaze Coder
+  </span>
+</div>
+
+
+<!-- <p *ngIf="loading">Loading users...</p>
+
+<p *ngIf="errorMessage">{{ errorMessage }}</p>  -->
+
+<!-- User List -->
+<!-- <ul *ngIf="!loading && !errorMessage">
+    <li *ngFor="let user of users">
+        {{ user.name }} - {{ user.email }}
+    </li>
+</ul>
+<p *ngIf="errorMessage">{{ errorMessage }}</p> -->
