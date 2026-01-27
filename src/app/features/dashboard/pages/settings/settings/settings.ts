@@ -37,7 +37,8 @@ export class Settings implements OnInit {
     this.http.put('http://localhost:3000/api/profile', {
       name: this.profile.name
     }).subscribe({
-      next: () => this.message = 'Profile updated ✔️'
+      next: () => this.message = 'Profile updated '
     });
+    
   }
 }

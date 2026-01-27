@@ -22,7 +22,7 @@ export class Home implements OnInit {
   }
 
   loadDashboard() {
-    // this.loading = true;
+   this.loading = true;
 
     this.http.get('http://localhost:3000/api/dashboard/summary')
       .subscribe({

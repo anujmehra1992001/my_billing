@@ -1,1 +1,47 @@
-<p>tasks works!</p>
+<div class="tasks-container">
+
+    <!-- Header -->
+    <div class="tasks-header">
+        <h2><i class="fa-solid fa-list-check"></i> Tasks</h2>
+        <button class="add-btn">
+      <i class="fa-solid fa-plus"></i> Add Task
+    </button>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" *ngIf="loading">
+        <i class="fa-solid fa-spinner fa-spin"></i> Loading tasks...
+    </div>
+
+    <!-- Task List -->
+    <div class="task-list" *ngIf="!loading">
+
+        <div class="task-card" *ngFor="let task of tasks">
+
+            <div class="task-left">
+                <i class="fa-solid fa-clipboard-check task-icon"></i>
+
+                <div>
+                    <h4>{{ task.title }}</h4>
+                    <span class="priority {{ task.priority | lowercase }}">
+            <i class="fa-solid fa-flag"></i> {{ task.priority }}
+          </span>
+                </div>
+            </div>
+
+            <div class="task-right">
+                <span class="status">{{ task.status }}</span>
+
+                <button class="icon-btn" (click)="editTask(task.id)">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+
+                <button class="icon-btn danger" (click)="deleteTask(task.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
