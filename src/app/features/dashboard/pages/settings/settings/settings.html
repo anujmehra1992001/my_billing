@@ -1,21 +1,44 @@
-<h2>Profile Settings</h2>
+<div class="container mt-4">
 
-<!-- Loader -->
-<div *ngIf="loading">Loading profile...</div>
+    <!-- 🔄 LOADING -->
+    <div *ngIf="loading" class="text-center py-5">
+        <div class="spinner-border text-primary"></div>
+        <p class="mt-2">Loading profile...</p>
+    </div>
 
-<!-- Profile -->
-<div *ngIf="!loading" class="profile-card">
+    <!-- ✅ PROFILE CONTENT -->
+    <div *ngIf="!loading">
 
-    <img [src]="profile.avatar || 'assets/profile/'" class="profile-pic" />
+        <h4 class="mb-3">Profile Settings</h4>
 
-    <label>Name</label>
-    <input [(ngModel)]="profile.name" />
+        <!-- SUCCESS MESSAGE -->
+        <div *ngIf="message" class="alert alert-success">
+            {{ message }}
+        </div>
 
-    <label>Email</label>
-    <input [value]="profile.email" disabled />
+        <form (ngSubmit)="updateProfile()">
 
-    <button (click)="updateProfile()">Save</button>
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" [(ngModel)]="profile.name" name="name">
+            </div>
 
-    <p class="success" *ngIf="message">{{ message }}</p>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" [value]="profile.email" disabled>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Role</label>
+                <input type="text" class="form-control" [value]="profile.role" disabled>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+        Update Profile
+      </button>
+
+        </form>
+
+    </div>
 
 </div>

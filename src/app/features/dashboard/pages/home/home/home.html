@@ -1,43 +1,51 @@
-<!-- 🔄 Loader -->
-<div *ngIf="loading" class="loader-container">
-    <div class="spinner"></div>
-    <p>Loading dashboard...</p>
-</div>
+<div class="container mt-4">
 
-<!-- ❌ Error -->
-<div *ngIf="error" class="error">
-    {{ error }}
-</div>
+    <!-- 🔄 LOADER -->
+    <div *ngIf="loading" class="text-center py-5">
+        <div class="spinner-border text-primary"></div>
+        <p>Loading dashboard...</p>
+    </div>
 
-<!-- ✅ Dashboard -->
-<div *ngIf="!loading && dashboardData" class="dashboard">
+    <!-- ❌ ERROR -->
+    <div *ngIf="error && !loading" class="alert alert-danger">
+        {{ error }}
+    </div>
 
-    <h2>
-        Welcome,
-        <span class="amaze">AMAZE</span>
-        <span class="coders">CODERS</span>
-    </h2>
+    <!-- ✅ DASHBOARD DATA -->
+    <div *ngIf="!loading && dashboardData">
 
-    <div class="cards">
-        <div class="card">
-            <h3>Users</h3>
-            <p>{{ dashboardData.cards.totalUsers }}</p>
+        <h4 class="mb-3">Dashboard Summary</h4>
+
+        <div class="row">
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card p-3 text-center">
+                    <h6>Total Users</h6>
+                    <h3>{{ dashboardData.cards.totalUsers }}</h3>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card p-3 text-center">
+                    <h6>Total Tasks</h6>
+                    <h3>{{ dashboardData.cards.totalTasks }}</h3>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card p-3 text-center">
+                    <h6>Notifications</h6>
+                    <h3>{{ dashboardData.cards.notifications }}</h3>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card p-3 text-center">
+                    <h6>Active Products</h6>
+                    <h3>{{ dashboardData.cards.activeProducts }}</h3>
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Tasks</h3>
-            <p>{{ dashboardData.cards.totalTasks }}</p>
-        </div>
-
-        <div class="card">
-            <h3>Notifications</h3>
-            <p>{{ dashboardData.cards.notifications }}</p>
-        </div>
-
-        <div class="card">
-            <h3>Active Products</h3>
-            <p>{{ dashboardData.cards.activeProducts }}</p>
-        </div>
     </div>
 
 </div>
