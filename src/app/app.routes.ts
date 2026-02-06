@@ -57,7 +57,7 @@ export const routes: Routes = [
         path: 'notifications',
         loadComponent: () =>
           import('./features/dashboard/pages/notifications/notifications/notifications')
-            .then(m => m.Notifications)
+            .then(m => m.notifications)
       },
 
       {
