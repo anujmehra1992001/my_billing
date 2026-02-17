@@ -19,7 +19,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   return next(authReq).pipe(
     catchError((error: HttpErrorResponse) => {
 
-      // 🔐 Token expired / invalid
+      
       if (error.status === 401 || error.status === 403) {
         localStorage.clear();
         router.navigate(['/login']);

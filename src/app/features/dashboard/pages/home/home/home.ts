@@ -12,28 +12,29 @@ import { CommonModule } from '@angular/common';
 export class Home implements OnInit {
 
   loading = true;     
-  dashboardData: any;  
-  error = '';
+dashboardData: any;  
+error = '';
 
-  constructor(private http: HttpClient) {}
+constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.loadDashboard();
-  }
+ngOnInit() {
+  this.loadDashboard();
+}
 
-  loadDashboard() {
-    // this.loading = true;
+loadDashboard() {
+   this.loading = true;
 
-    this.http.get('http://localhost:3000/api/dashboard/summary')
-      .subscribe({
-        next: (res) => {
-          this.dashboardData = res;
-         
-        },
-        error: () => {
-          this.error = 'Failed to load dashboard';
-          this.loading = false;
-        }
-      });
-  }
+  this.http.get('http://localhost:3000/api/dashboard/summary')
+    .subscribe({
+      next: (res) => {
+        this.dashboardData = res;
+        this.loading = false;   
+      },
+      error: () => {
+        this.error = 'Failed to load dashboard';
+        this.loading = false;
+      }
+    });
+}
+
 }

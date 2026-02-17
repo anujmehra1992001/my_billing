@@ -1,1 +1,22 @@
-<p>users works!</p>
+<h2>User List</h2>
+
+<button (click)="refresh()">Refresh</button>
+
+<div *ngIf="loading">Loading users...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="!loading && users.length">
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+    </tr>
+
+    <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.role }}</td>
+    </tr>
+</table>
+
+<div *ngIf="!loading && !users.length">
+    No users found
+</div>

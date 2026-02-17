@@ -1,1 +1,26 @@
-<p>notifications works!</p>
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+    <input placeholder="Book name" formControlName="name">
+    <div *ngIf="bookForm.get('price')?.errors?.['maxPrice']">
+        ❌ Price cannot be more than 5000
+    </div>
+
+    <input type="number" placeholder="Price" formControlName="price">
+    <div *ngIf="bookForm.controls['price'].touched && bookForm.controls['price'].invalid">
+        Price must be greater than 0
+    </div>
+
+
+    <button type="submit" [disabled]="loading">
+    {{ loading ? 'Saving...' : 'Add Book' }}
+  </button>
+</form>
+
+<p style="color:red" *ngIf="apiError">{{ apiError }}</p>
+<p style="color:green" *ngIf="successMsg">{{ successMsg }}</p>
+
+<ul>
+    <li *ngFor="let book of books">
+        {{ book.name }} - ₹{{ book.price }}
+    </li>
+</ul>
