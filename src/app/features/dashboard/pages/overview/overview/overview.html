@@ -1,29 +1,54 @@
-<div class="overview-container">
+<!-- Loader
+<div class="loader-container" *ngIf="loading">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading dashboard...</p>
+</div> -->
 
-    <!-- 🔹 Loading -->
-    <div *ngIf="loading">Loading dashboard...</div>
+<!-- Dashboard Content -->
+<!-- <div class="overview-container" *ngIf="!loading"> -->
 
-    <!-- 🔹 SUMMARY CARDS -->
-    <div class="cards" *ngIf="!loading">
-        <div class="card" *ngFor="let card of summaryCards">
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.value }}</p>
-        </div>
+<!-- Summary Cards -->
+<!-- <div class="summary-cards">
+        <mat-card class="summary-card" *ngFor="let card of summaryCards" [ngClass]="card.color">
+            <mat-card-content class="card-content">
+                <mat-icon class="card-icon">{{ getIconName(card.icon) }}</mat-icon>
+                <div class="card-text">
+                    <h3>{{ card.value }}</h3>
+                    <p>{{ card.title }}</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </div>
 
-    <!-- 🔹 AG GRID TABLE -->
-    <h2 style="margin-top: 20px;">Recent Users</h2>
+    <!-- Recent Activity -->
+<!-- <div class="recent-activity">
+        <mat-card class="activity-card">
+            <mat-card-header>
+                <mat-card-title>Recent Activity</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let activity of recentActivities">
+                        <mat-icon matListItemIcon>circle</mat-icon>
+                        <span matListItemTitle>{{ activity.message }}</span>
+                        <span matListItemLine>{{ activity.time }}</span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div> -->-->
 
-    <ag-grid-angular class="ag-theme-alpine" style="width: 100%; height: 350px;" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [pagination]="true" [paginationPageSize]="5">
-    </ag-grid-angular>
+<!-- Users Table (AG GRID) -->
+<!-- <div class="table-section">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Users</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <ag-grid-angular class="ag-theme-alpine" style="width: 100%; height: 350px;" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef">
+                </ag-grid-angular>
+            </mat-card-content>
+        </mat-card>
+    </div>
 
-    <!-- 🔹 RECENT ACTIVITIES -->
-    <h2 style="margin-top: 20px;">Recent Activities</h2>
-    <ul>
-        <li *ngFor="let activity of recentActivities">
-            {{ activity.message }} — <small>{{ activity.time }}</small>
-
-        </li>
-    </ul>
-
-</div>
+</div> -->
